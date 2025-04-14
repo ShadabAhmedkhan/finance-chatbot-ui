@@ -7,11 +7,12 @@ import axios from 'axios';
 
 export default function Home() {
   const router = useRouter();
-  const URL = 'http://127.0.0.1:8000/'
+  const URL = 'http://127.0.0.1:8000/auth'
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) router.push("/login");
+    else router.push("/chat");
   }, []);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
